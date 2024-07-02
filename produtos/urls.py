@@ -1,10 +1,18 @@
 from django.urls import path
 
-from .views import inicio, listar_locais, adicionar_local
+from .views import (
+    adicionar_embalagem,
+    adicionar_local,
+    inicio,
+    listar_embalagem,
+    listar_locais,
+)
 
 urlpatterns = [
     path('', inicio, name='inicio'),
     path('locais/', listar_locais, name='listar_locais'),
     path('locais/adicionar/', adicionar_local, name='adicionar_local'),
+    path('embalagem/', listar_embalagem, name='listar_embalagem'),
+    path('embalagem/adicionar/', adicionar_embalagem, name='adicionar_embalagem'),
 
 ]
