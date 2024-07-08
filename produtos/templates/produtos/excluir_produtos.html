@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Excluir Produto</h1>
+  <ul>
+    {% for produto in produtos %}
+      <li>
+        {{ produto.nome }} 
+        {{ produto.categoria }}
+        {{ produto.embalagens }}
+        {{ produto.estoque_minimo }}
+        {{ produto.estoque_maximo }}
+        <a href="{% url 'excluir_produtos' produto.pk %}">Excluir</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

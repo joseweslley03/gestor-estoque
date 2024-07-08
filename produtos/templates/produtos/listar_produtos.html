@@ -3,8 +3,8 @@
 {% block content %}
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Embalagem</h2>
-        <a href="{% url 'adicionar_embalagem' %}" class="btn btn-success">Adicionar Embalagem</a>
+        <h2>Lista de Produtos</h2>
+        <a href="{% url 'adicionar_produtos' %}" class="btn btn-success">Adicionar Produto</a>
     </div>
     <form method="get" class="mb-4">
         <div class="row">
@@ -21,17 +21,23 @@
             <thead class="thead-dark">
                 <tr>
                     <th>Nome</th>
-                    <th>Sigla</th>
+                    <th>Categoria</th>
+                    <th>Embalagens</th>
+                    <th>Estoque Mín</th>
+                    <th>Estoque Max</th>
                 </tr>
             </thead>
             <tbody>
-                {% for embalagem in embalagens %}
+                {% for produto in produtos %}
                 <tr>
-                    <td>{{ embalagem.nome }}</td>
-                    <td>{{ embalagem.sigla }}</td>
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.categoria }}</td>
+                    <td>{{ produto.embalagens }}</td>
+                    <td>{{ produto.estoque_minimo }}</td>
+                    <td>{{ produto.estoque_maximo }}</td>
                     <td class="text-end">
-                        <a href="{% url 'excluir_embalagem' embalagem.pk %}" class="btn btn-secondary">Excluir</a>
-                        <a href="{% url 'editar_embalagem' embalagem.pk %}" class="btn btn-info">Editar</a>
+                        <a href="{% url 'editar_produtos' produto.id %}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{% url 'excluir_produtos' produto.id %}" class="btn btn-danger btn-sm">Excluir</a>
                     </td>
                 </tr>
                 {% endfor %}

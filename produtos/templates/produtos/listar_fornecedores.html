@@ -3,8 +3,8 @@
 {% block content %}
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Embalagem</h2>
-        <a href="{% url 'adicionar_embalagem' %}" class="btn btn-success">Adicionar Embalagem</a>
+        <h2>Lista de Fornecedores</h2>
+        <a href="{% url 'adicionar_fornecedores' %}" class="btn btn-success">Adicionar Fornecedor</a>
     </div>
     <form method="get" class="mb-4">
         <div class="row">
@@ -20,18 +20,20 @@
         <table class="table table-striped table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th>Nome</th>
-                    <th>Sigla</th>
+                    <th>Nome Social</th>
+                    <th>Nome Fantasia</th>
+                    <th>Produto</th>
                 </tr>
             </thead>
             <tbody>
-                {% for embalagem in embalagens %}
+                {% for fornecedor in fornecedores %}
                 <tr>
-                    <td>{{ embalagem.nome }}</td>
-                    <td>{{ embalagem.sigla }}</td>
+                    <td>{{ fornecedores.nome_social }}</td>
+                    <td>{{ fornecedor.nome_fantasia }}</td>
+                    <td>{{ fornecedor.produtos }}</td>
                     <td class="text-end">
-                        <a href="{% url 'excluir_embalagem' embalagem.pk %}" class="btn btn-secondary">Excluir</a>
-                        <a href="{% url 'editar_embalagem' embalagem.pk %}" class="btn btn-info">Editar</a>
+                        <a href="{% url 'editar_fornecedores' fornecedor.id %}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{% url 'excluir_fornecedores' fornecedorid %}" class="btn btn-danger btn-sm">Excluir</a>
                     </td>
                 </tr>
                 {% endfor %}

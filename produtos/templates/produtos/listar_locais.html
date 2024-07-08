@@ -36,6 +36,10 @@
                 <tr>
                     <td>{{ local.nome }}</td>
                     <td>{{ local.tipo }}</td>
+                    <td class="text-end">
+                        <a href="{% url 'excluir_local' local.pk %}" class="btn btn-secondary">Excluir</a>
+                        <a href="{% url 'editar_local' local.pk %}" class="btn btn-info">Editar</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
